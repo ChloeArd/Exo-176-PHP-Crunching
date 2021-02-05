@@ -123,6 +123,7 @@ $romance = 0;
 $doc = 0;
 $western = 0;
 $horror = 0;
+
 for ($i = 0; $i < 100; $i++) {
     $categoryFilm = $top[$i]["category"]["attributes"]["term"];
     switch ($categoryFilm) {
@@ -196,14 +197,122 @@ else {
     echo "La catégorie de films la plus représentée est Horror <br>";
 }
 
+// Le réalisateur le plus présent dans le top 100 : ????????????????????????????????????????????????????
 
-// Le réalisateur le plus présent dans le top 100 :
 
+
+echo "<br>";
 // Le prix qui reviendrait si on achète le top 10 sur itunes :
+for ($i = 0; $i < 10; $i++) {
+    $price = $top[$i]["im:price"]["attributes"]["amount"];
+    $price += $price;
+}
+echo "Le prix si on achète le top 10 sur itunes serait de $price $";
 
-// Le pris qui reviendrait si on loue le top 10 sur itunes :
+echo "<br>";
+// Le prix qui reviendrait si on loue le top 10 sur itunes :
+for ($i = 0; $i < 10; $i++) {
+    $rentalPrice = $top[$i]["im:rentalPrice"]["attributes"]["amount"];
+    $rentalPrice += $rentalPrice;
+}
+echo "Le prix si on loue le top 10 sur itunes serait de $rentalPrice $ (tous n'est pas à louer)";
+
+echo "<br><br>";
+
 
 // Le mois ayant vue le plus de sorties au cinéma :
+$january = 0;
+$february = 0;
+$march = 0;
+$april = 0;
+$may = 0;
+$june = 0;
+$july = 0;
+$august = 0;
+$september = 0;
+$october = 0;
+$november = 0;
+$december = 0;
+
+for ($i = 0; $i < 100; $i++) {
+    $monthPlus = $top[$i]["im:releaseDate"]["attributes"]["label"];
+    if (strpos($monthPlus, "January") === 0) {
+        $january++;
+    }
+    elseif (strpos($monthPlus, "February") === 0) {
+        $february++;
+    }
+    elseif (strpos($monthPlus, "March") === 0) {
+        $march++;
+    }
+    elseif (strpos($monthPlus, "April") === 0) {
+        $april++;
+    }
+    elseif (strpos($monthPlus, "May") === 0) {
+        $may++;
+    }
+    elseif (strpos($monthPlus, "June") === 0) {
+        $june++;
+    }
+    elseif (strpos($monthPlus, "July") === 0) {
+        $july++;
+    }
+    elseif (strpos($monthPlus, "August") === 0) {
+        $august++;
+    }
+    elseif (strpos($monthPlus, "September") === 0) {
+        $september++;
+    }
+    elseif (strpos($monthPlus, "October") === 0) {
+        $october++;
+    }
+    elseif (strpos($monthPlus, "November") === 0) {
+        $november++;
+    }
+    elseif (strpos($monthPlus, "December") === 0) {
+        $december++;
+    }
+}
+
+if ($january >= $february && $january >= $march && $january >= $april && $january >= $may && $january >= $june && $january >= $july && $january >= $august && $january >= $september && $january >= $october && $january >= $november && $january >= $december) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Janvier<br>";
+}
+if ($february >= $january && $february >= $march && $february >= $april && $february >= $may && $february >= $june && $february >= $july && $february >= $august && $february >= $september && $february >= $october && $february >= $november && $february >= $december) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Février<br>";
+}
+if ($march >= $january && $march >= $february && $march >= $april && $march >= $may && $march >= $june && $march >= $july && $march >= $august && $march >= $september && $march >= $october && $march >= $november && $march >= $december) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Mars<br>";
+}
+if ($april >= $january && $april >= $february && $april >= $march && $april >= $may && $april >= $june && $april >= $july && $april >= $august && $april >= $september && $april >= $october && $april >= $november && $april >= $december) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Avril<br>";
+}
+if ($may >= $january && $may >= $february && $may >= $march && $may >= $april && $may >= $june && $may >= $july && $may >= $august && $may >= $september && $may >= $october && $may >= $november && $may >= $december) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Mai<br>";
+}
+if ($june >= $january && $june >= $february && $june >= $march && $june >= $april && $june >= $may && $june >= $july && $june >= $august && $june >= $september && $june >= $october && $june >= $november && $june >= $december) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Juin<br>";
+}
+if ($july >= $january && $july >= $february && $july >= $march && $july >= $april && $july >= $may && $july >= $june && $july >= $august && $july >= $september && $july >= $october && $july >= $november && $july >= $december) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Juillet<br>";
+}
+if ($august >= $january && $august >= $february && $august >= $march && $august >= $april && $august >= $may && $august >= $june && $august >= $july && $august >= $september && $august >= $october && $august >= $november && $august >= $december) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Août<br>";
+}
+if ($september >= $january && $september >= $february && $september >= $march && $september >= $april && $september >= $may && $september >= $june && $september >= $july && $september >= $august && $september >= $october && $september >= $november && $september >= $december) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Septembre<br>";
+}
+if ($october >= $january && $october >= $february && $october >= $march && $october >= $april && $october >= $may && $october >= $june && $october >= $july && $october >= $august && $october >= $september && $october >= $november && $october >= $december) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Octobre<br>";
+}
+if ($november >= $january && $november >= $february && $november >= $march && $november >= $april && $november >= $may && $november >= $june && $november >= $july && $november >= $august && $november >= $september && $november >= $october && $november >= $december) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Novembre<br>";
+}
+if ($december >= $january && $december >= $february && $december >= $march && $december >= $april && $december >= $may && $december >= $june && $december >= $july && $december >= $august && $december >= $september && $december >= $october && $december >= $november) {
+    echo "Le mois ayant vue le plus de sorties au cinéma est Décembre<br>";
+}
+
+echo "<br>";
+
 
 // Les 10 meilleurs films à voir en ayant un budget limité :
 
