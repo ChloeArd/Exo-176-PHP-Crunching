@@ -53,8 +53,6 @@ for ($i = 0; $i < 10; $i++) {
 echo "<br>";
 
 // Le classement du film "Gravity" :
-$num = count($brut);
-
 for ($i = 0; $i < 100; $i++) {
     $nbTop = $i+1;
     if ($top[$i]["im:name"]["label"] === "Gravity") {
@@ -315,4 +313,15 @@ echo "<br>";
 
 
 // Les 10 meilleurs films à voir en ayant un budget limité :
+echo "Les 10 meilleurs films à voir en ayant un buget d'environ 1 $ : "."<br><br>";
 
+$filmPetitPrix = 0;
+
+for ($i = 0; $i < 13; $i++) {
+    $price = $top[$i]["im:price"]["attributes"]["amount"];
+    $position = strpos($price, "1");
+    if ($position === 0) {
+        $filmPetitPrix++;
+        echo $top[$i]["im:name"]["label"]."<br>";
+    }
+}
